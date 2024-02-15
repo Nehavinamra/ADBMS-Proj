@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfveHMpAAAAAN_GpCJ-XxcDYJm3H_12S1sEBgla"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -74,7 +76,14 @@ span.psw {
   <div class="imgcontainer">
     <img src="pic4.jpeg" alt="Avatar" class="avatar">
   </div>
-
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LfveHMpAAAAAN_GpCJ-XxcDYJm3H_12S1sEBgla', {action: 'LOGIN'});
+    });
+  }
+</script>
   <div class="container">
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
