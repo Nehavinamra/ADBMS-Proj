@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -74,6 +76,10 @@ span.psw {
   <div class="imgcontainer">
     <img src="pic4.jpeg" alt="Avatar" class="avatar">
   </div>
+  <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+  <br/>
+  <input type="submit" value="Submit">
+
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
@@ -86,6 +92,7 @@ span.psw {
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
+    
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
