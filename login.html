@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+=======
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfveHMpAAAAAN_GpCJ-XxcDYJm3H_12S1sEBgla"></script>
+>>>>>>> 90c96cc16b20474468395ee8d91ac5f31c6a7f2d
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -76,11 +80,22 @@ span.psw {
   <div class="imgcontainer">
     <img src="pic4.jpeg" alt="Avatar" class="avatar">
   </div>
+<<<<<<< HEAD
   <div class="g-recaptcha" data-sitekey="your_site_key"></div>
   <br/>
   <input type="submit" value="Submit">
 
 
+=======
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LfveHMpAAAAAN_GpCJ-XxcDYJm3H_12S1sEBgla', {action: 'LOGIN'});
+    });
+  }
+</script>
+>>>>>>> 90c96cc16b20474468395ee8d91ac5f31c6a7f2d
   <div class="container">
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
@@ -97,7 +112,7 @@ span.psw {
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <span class="psw"> <a href="#">Forgot password?</a></span>
   </div>
 </form>
 
