@@ -5,13 +5,19 @@ class Pokemon extends React.Component {
     super(props);
     this.state = {
       results: [],
+      isLoaded: false,
     };
   }
 
   componentDidMount() {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
-      .then((response) => response.json())
-      .then((data) => this.setState({ results: data }));
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({
+          isLoaded: true,
+          results: json,
+        });
+      });
   }
 
   render() {
@@ -20,9 +26,8 @@ class Pokemon extends React.Component {
     return (
       <div>
         {results.map((item) => (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <p>{item.body}</p>
+          <div key={item.name}>
+            <h1>{item.url}</h1>
           </div>
         ))}
       </div>
