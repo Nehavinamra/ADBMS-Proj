@@ -1,17 +1,33 @@
 import React from "react";
 
-function HomePage() {
-  console.log("hi");
-  const dynamicurl = "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0";
-  $.getJSON(dynamicurl, function (data) {
-    console.log("example of json");
-    console.log(data);
-  });
+class Pokemon extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: [],
+    };
+  }
 
-  return (
-    <div>
-      <h1> Welcome to my homepage</h1>
-    </div>
-  );
+  componentDidMount() {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
+      .then((response) => response.json())
+      .then((data) => this.setState({ results: data }));
+  }
+
+  render() {
+    const { results } = this.state;
+
+    return (
+      <div>
+        {results.map((item) => (
+          <div key={item.id}>
+            <h1>{item.title}</h1>
+            <p>{item.body}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
-export default HomePage;
+
+export default Pokemon;
