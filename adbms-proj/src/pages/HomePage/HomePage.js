@@ -15,7 +15,7 @@ class Pokemon extends React.Component {
       .then((json) => {
         this.setState({
           isLoaded: true,
-          results: json,
+          results: json.results,
         });
       });
   }
