@@ -27,7 +27,7 @@ class Pokemon extends React.Component {
       <div>
         {results.map((item) => (
           <div key={item.name}>
-            <h1>{item.url}</h1>
+            <h1>{item.name}</h1>
           </div>
         ))}
       </div>
