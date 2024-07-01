@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Pokemon</h1>
+    <p id="demo"></p>
+
+    <script>
+        const proj = new XMLHttpRequest();
+        proj.onload = function() {
+            const myObj = JSON.parse(this.responseText);
+            let text ="";
+            for(const x in myObj.results)
+            {
+                text += myObj.results[x].name + "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+        proj.open("GET", "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0");
+        proj.send();
+    </script>
+</body>
+</html>
